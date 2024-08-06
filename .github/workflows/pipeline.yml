@@ -48,10 +48,11 @@ jobs:
 
       - name: Analyze
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        run: mvn -B -DskipTests sonar:sonar
+        run: mvn sonar:sonar \
+          -Dsonar.host.url=https://sonarcloud.io \
+          -Dsonar.organization=trainee \
+          -Dsonar.projectKey=gregorkielbasa_sonar
 
   test:
     name: Test
