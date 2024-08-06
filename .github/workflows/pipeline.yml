@@ -49,10 +49,7 @@ jobs:
       - name: Analyze
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn validate sonar:sonar \
-          -Dsonar.host.url=https://sonarcloud.io \
-          -Dsonar.organization=trainee \
-          -Dsonar.projectKey=gregorkielbasa_sonar
+        run: mvn -B validate org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=gregorkielbasa_sonar
 
   test:
     name: Test
