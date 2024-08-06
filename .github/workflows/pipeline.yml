@@ -49,7 +49,7 @@ jobs:
       - name: Analyze
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B validate org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=gregorkielbasa_sonar
+        run: mvn -B validate org.sonarsource.scanner.maven:sonar-maven-plugin:4.0.0.4121 -Dsonar.projectKey=gregorkielbasa_sonar
 
   test:
     name: Test
